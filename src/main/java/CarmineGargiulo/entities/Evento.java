@@ -4,6 +4,8 @@ import CarmineGargiulo.entities.Enums.TipoEvento;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -33,6 +35,9 @@ public class Evento {
     @ManyToOne
     @JoinColumn(name = "location_id", nullable = false)
     private Location location;
+
+    @OneToMany(mappedBy = "evento")
+    private List<Partecipazione> partecipazioneList = new ArrayList<>();
 
     public Evento(){
 
@@ -97,6 +102,14 @@ public class Evento {
 
     public void setNrMaxPartecipanti(int nrMaxPartecipanti) {
         this.nrMaxPartecipanti = nrMaxPartecipanti;
+    }
+
+    public List<Partecipazione> getPartecipazioneList() {
+        return partecipazioneList;
+    }
+
+    public void setPartecipazioneList(List<Partecipazione> partecipazioneList) {
+        this.partecipazioneList = partecipazioneList;
     }
 
     @Override

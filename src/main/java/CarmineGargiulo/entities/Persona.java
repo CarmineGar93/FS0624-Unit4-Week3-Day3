@@ -4,6 +4,8 @@ import CarmineGargiulo.entities.Enums.Sesso;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -28,6 +30,9 @@ public class Persona {
     @Column(name = "sex")
     @Enumerated(EnumType.STRING)
     private Sesso sesso;
+
+    @OneToMany(mappedBy = "persona")
+    private List<Partecipazione> partecipazioneList = new ArrayList<>();
 
     public Persona(){
 
@@ -82,6 +87,14 @@ public class Persona {
 
     public UUID getPersonaId() {
         return personaId;
+    }
+
+    public List<Partecipazione> getPartecipazioneList() {
+        return partecipazioneList;
+    }
+
+    public void setPartecipazioneList(List<Partecipazione> partecipazioneList) {
+        this.partecipazioneList = partecipazioneList;
     }
 
     @Override
