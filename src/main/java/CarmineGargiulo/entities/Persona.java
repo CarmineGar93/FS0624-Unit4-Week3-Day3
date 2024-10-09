@@ -34,15 +34,16 @@ public class Persona {
     @OneToMany(mappedBy = "persona")
     private List<Partecipazione> partecipazioneList = new ArrayList<>();
 
-    public Persona(){
-
-    }
     public Persona(String nome, String cognome, String email, LocalDate dataNascita, Sesso sesso) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.dataNascita = dataNascita;
         this.sesso = sesso;
+    }
+
+    public Persona(){
+
     }
 
     public String getNome() {
