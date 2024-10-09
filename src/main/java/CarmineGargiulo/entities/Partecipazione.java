@@ -1,6 +1,6 @@
 package CarmineGargiulo.entities;
 
-import CarmineGargiulo.entities.Enums.Stato;
+import CarmineGargiulo.Enums.Stato;
 import jakarta.persistence.*;
 
 import java.util.UUID;

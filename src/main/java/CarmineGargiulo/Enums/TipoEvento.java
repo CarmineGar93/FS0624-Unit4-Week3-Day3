@@ -1,4 +1,4 @@
-package CarmineGargiulo.entities.Enums;
+package CarmineGargiulo.Enums;
 
 public enum TipoEvento {
     PUBBLICO, PRIVATO

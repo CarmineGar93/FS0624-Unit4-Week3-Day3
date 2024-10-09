@@ -1,6 +1,6 @@
 package CarmineGargiulo.entities;
 
-import CarmineGargiulo.entities.Enums.Sesso;
+import CarmineGargiulo.Enums.Sesso;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
