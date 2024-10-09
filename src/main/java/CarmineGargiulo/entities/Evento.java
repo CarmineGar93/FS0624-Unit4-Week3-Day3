@@ -29,16 +29,29 @@ public class Evento {
     @Column(name = "max_participants")
     private int nrMaxPartecipanti;
 
+    @ManyToOne
+    @JoinColumn(name = "location_id", nullable = false)
+    private Location location;
+
     public Evento(){
 
     }
 
-    public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int nrMaxPartecipanti) {
+    public Evento(String titolo, LocalDate dataEvento, String descrizione, TipoEvento tipoEvento, int nrMaxPartecipanti, Location location) {
         this.titolo = titolo;
         this.dataEvento = dataEvento;
         this.descrizione = descrizione;
         this.tipoEvento = tipoEvento;
         this.nrMaxPartecipanti = nrMaxPartecipanti;
+        this.location = location;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public UUID getId() {
@@ -88,12 +101,13 @@ public class Evento {
     @Override
     public String toString() {
         return "Evento{" +
-                "id=" + eventoId +
-                ", name='" + titolo + '\'' +
-                ", dataEvento='" + dataEvento.toString() + '\'' +
+                "eventoId=" + eventoId +
+                ", titolo='" + titolo + '\'' +
+                ", dataEvento=" + dataEvento +
                 ", descrizione='" + descrizione + '\'' +
                 ", tipoEvento=" + tipoEvento +
                 ", nrMaxPartecipanti=" + nrMaxPartecipanti +
+                ", location=" + location +
                 '}';
     }
 }
