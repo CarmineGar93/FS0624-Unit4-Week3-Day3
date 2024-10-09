@@ -1,5 +1,6 @@
 package CarmineGargiulo.entities;
 
+import CarmineGargiulo.entities.Enums.TipoEvento;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
