@@ -3,13 +3,15 @@ package CarmineGargiulo.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Entity
 @Table(name = "events")
 public class Evento {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue
+    @Column(name = "evento_id")
+    private UUID eventoId;
 
     @Column(name = "title" , nullable = false)
     private String titolo;
@@ -39,12 +41,8 @@ public class Evento {
         this.nrMaxPartecipanti = nrMaxPartecipanti;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public UUID getId() {
+        return eventoId;
     }
 
     public String getTitolo() {
@@ -90,7 +88,7 @@ public class Evento {
     @Override
     public String toString() {
         return "Evento{" +
-                "id=" + id +
+                "id=" + eventoId +
                 ", name='" + titolo + '\'' +
                 ", dataEvento='" + dataEvento.toString() + '\'' +
                 ", descrizione='" + descrizione + '\'' +
