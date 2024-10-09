@@ -76,6 +76,7 @@ public class Application {
         pad.save(p5);
         pad.save(p6);*/
         cenaFamigliaFromDb.getPartecipazioneList().forEach(System.out::println);
+        carmineFromDb.getPartecipazioneList().forEach(System.out::println);
 
 
 
